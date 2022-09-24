@@ -1,6 +1,6 @@
 from pydantic import BaseSettings
 
-from pogo_api.version import __version__
+from pogo_api.core.version import __version__
 
 
 class PogoSettings(BaseSettings):
