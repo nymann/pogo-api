@@ -1,5 +1,4 @@
-from collections.abc import Coroutine
-from typing import Callable
+from typing import Callable, Coroutine
 
 from pogo_api.http import Method
 from pogo_api.route import Route
