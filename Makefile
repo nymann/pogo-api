@@ -10,6 +10,5 @@ include make/help.mk
 include make/clean.mk
 include make/lint.mk
 include make/ci.mk
-include make/run.mk
 
 .DEFAULT:help
