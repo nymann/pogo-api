@@ -1,6 +1,6 @@
 TARGET?=local
 COMPONENT?=pogo_api
-VERSION:=src/${COMPONENT}/core/version.py
+VERSION:=src/${COMPONENT}/version.py
 
 include make/common.mk
 
