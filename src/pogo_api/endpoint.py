@@ -1,20 +1,16 @@
-from abc import ABC
 from collections.abc import Coroutine
 from typing import Callable
 
-from pogo_api.core.config import PogoConfig
-from pogo_api.core.http import Method
-from pogo_api.core.route import Route
+from pogo_api.http import Method
+from pogo_api.route import Route
 
 
-class Endpoint(ABC):
+class _Endpoint:
     method = Method.GET
     endpoint: Callable[..., Coroutine]
 
-    def __init__(self, config: PogoConfig) -> None:
+    def __init__(self) -> None:
         self._name = self.__class__.__name__
-        self.config = config
-        self.settings = config.settings
 
     @property
     def path(self) -> str:
@@ -31,25 +27,25 @@ class Endpoint(ABC):
         )
 
 
-class DeleteEndpoint(Endpoint):
+class DeleteEndpoint(_Endpoint):
     method = Method.DELETE
 
 
-class GetEndpoint(Endpoint):
+class GetEndpoint(_Endpoint):
     method = Method.GET
 
 
-class PatchEndpoint(Endpoint):
+class PatchEndpoint(_Endpoint):
     method = Method.PATCH
 
 
-class PostEndpoint(Endpoint):
+class PostEndpoint(_Endpoint):
     method = Method.POST
 
 
-class PutEndpoint(Endpoint):
+class PutEndpoint(_Endpoint):
     method = Method.PUT
 
 
-class UpdateEndpoint(Endpoint):
+class UpdateEndpoint(_Endpoint):
     method = Method.UPDATE
