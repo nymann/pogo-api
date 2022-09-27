@@ -5,3 +5,8 @@ __pycache__/
 coverage.xml
 htmlcov/
 .cache/
+.eggs/
+build/
+dist/
+src/pogo_api.egg-info/
+src/pogo_api/version.py
