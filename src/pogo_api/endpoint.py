@@ -4,7 +4,7 @@ from pogo_api.http import Method
 from pogo_api.route import Route
 
 
-class _Endpoint:
+class Endpoint:
     method = Method.GET
     endpoint: Callable[..., Coroutine]
 
@@ -26,25 +26,25 @@ class _Endpoint:
         )
 
 
-class DeleteEndpoint(_Endpoint):
+class DeleteEndpoint(Endpoint):
     method = Method.DELETE
 
 
-class GetEndpoint(_Endpoint):
+class GetEndpoint(Endpoint):
     method = Method.GET
 
 
-class PatchEndpoint(_Endpoint):
+class PatchEndpoint(Endpoint):
     method = Method.PATCH
 
 
-class PostEndpoint(_Endpoint):
+class PostEndpoint(Endpoint):
     method = Method.POST
 
 
-class PutEndpoint(_Endpoint):
+class PutEndpoint(Endpoint):
     method = Method.PUT
 
 
-class UpdateEndpoint(_Endpoint):
+class UpdateEndpoint(Endpoint):
     method = Method.UPDATE

@@ -4,7 +4,7 @@ from typing import Callable
 from fastapi import APIRouter
 from fastapi import FastAPI
 
-from pogo_api.core.http import Method
+from pogo_api.http import Method
 
 
 @dataclass
