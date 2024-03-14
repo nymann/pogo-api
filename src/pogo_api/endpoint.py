@@ -2,17 +2,12 @@ from typing import Callable, Coroutine
 
 from pogo_api.http import Method
 from pogo_api.pascal_converter import pascal_to_kebab
-from pogo_api.pascal_converter import pascal_to_name
 from pogo_api.route import Route
 
 
 class Endpoint:
     method = Method.GET
     endpoint: Callable[..., Coroutine]
-
-    @property
-    def name(self) -> str:
-        return pascal_to_name(self.__class__.__name__)
 
     @property
     def path(self) -> str:
@@ -25,7 +20,6 @@ class Endpoint:
             path=self.path,
             method=self.method,
             endpoint=self.endpoint,
-            tag=self.name,
         )
 
 

@@ -4,18 +4,16 @@ from typing import Callable
 from fastapi import APIRouter
 from fastapi import FastAPI
 
-from pogo_api.http import Method
-
 
 @dataclass
-class Route:
+class WebSocket:
     path: str
-    method: Method
     endpoint: Callable
+    name: str
 
     def add_to_router(self, router: APIRouter | FastAPI) -> None:
-        router.add_api_route(
+        router.add_api_websocket_route(
             path=self.path,
-            methods=[self.method.value],
             endpoint=self.endpoint,
+            name=self.name,
         )
